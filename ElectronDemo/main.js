@@ -2,6 +2,8 @@ const electron = require('electron')
 const ipc = electron.ipcMain
 // Module to control application life.
 const app = electron.app
+var logob = require('./logger.js');
+var log = new logob().Getlog();
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
@@ -12,23 +14,24 @@ const url = require('url')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 //登录窗口最小化
-ipc.on('window-min',function(){
+ipc.on('window-min', function () {
   mainWindow.minimize();
 })
 //登录窗口最大化
-ipc.on('window-max',function(){
-  if(mainWindow.isMaximized()){
-      mainWindow.restore();  
-  }else{
-      mainWindow.maximize(); 
+ipc.on('window-max', function () {
+  if (mainWindow.isMaximized()) {
+    mainWindow.restore();
+  } else {
+    mainWindow.maximize();
   }
 })
-ipc.on('window-close',function(){
+ipc.on('window-close', function () {
   mainWindow.close();
 })
-function createWindow () {
+function createWindow() {
+  log.error('这是一个错误');
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600, frame: false})
+  mainWindow = new BrowserWindow({ width: 800, height: 600, frame: false })
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -47,7 +50,7 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
-  
+
 }
 
 // This method will be called when Electron has finished
