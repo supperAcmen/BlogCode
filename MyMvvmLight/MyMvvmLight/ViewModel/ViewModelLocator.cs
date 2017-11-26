@@ -44,6 +44,8 @@ namespace MyMvvmLight.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<Window1ViewModel>();
+            SimpleIoc.Default.Register<Window2ViewModel>();
+
 
         }
 
@@ -59,6 +61,13 @@ namespace MyMvvmLight.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<Window1ViewModel>();
+            }
+        }
+        public Window2ViewModel View2
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<Window2ViewModel>();
             }
         }
         public static void Cleanup()
