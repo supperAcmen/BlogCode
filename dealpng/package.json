@@ -1,0 +1,15 @@
+{
+  "name": "dealpng",
+  "version": "1.0.0",
+  "description": "把两个图合并成一个",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "lyy",
+  "license": "ISC",
+  "dependencies": {
+    "get-pixels": "^3.3.0",
+    "jimp": "^0.2.28"
+  }
+}
